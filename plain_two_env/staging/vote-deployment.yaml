@@ -15,7 +15,8 @@ spec:
         app: vote
     spec:
       containers:
-      - image: dockersamples/examplevotingapp_vote
+      - image: voting-app/vote  # use the modified local image
+        imagePullPolicy: Never  # force local image to be used    
         name: vote
         env:
           - name: ENVIRONMENT
