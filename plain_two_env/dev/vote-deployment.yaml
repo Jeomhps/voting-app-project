@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - image: voting-app/vote
+        imagePullPolicy: Never  # force local image to be used
         name: vote
         env:
           - name: ENVIRONMENT
