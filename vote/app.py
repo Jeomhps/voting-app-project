@@ -27,6 +27,10 @@ def hello():
     if not voter_id:
         voter_id = hex(random.getrandbits(64))[2:-1]
 
+    # Récupère la variable d'environnement
+    env = os.getenv('ENVIRONMENT', 'dev')  # Par défaut, 'dev' si non définie
+    env_banner = f"{env.upper()} ENV"  # Convertit en majuscules
+
     vote = None
 
     if request.method == 'POST':
@@ -42,10 +46,10 @@ def hello():
         option_b=option_b,
         hostname=hostname,
         vote=vote,
+        env_banner=env_banner,  # Passe la bannière au template
     ))
     resp.set_cookie('voter_id', voter_id)
     return resp
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True, threaded=True)

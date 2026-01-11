@@ -4,13 +4,27 @@
     <meta charset="utf-8">
     <title>{{option_a}} vs {{option_b}}!</title>
     <base href="/index.html">
-    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="docker-compose, docker, stack">
     <meta name="author" content="Tutum dev team">
-    <link rel='stylesheet' href="{{ url_for('static',filename='stylesheets/style.css') }}" />
+    <link rel='stylesheet' href="{{ url_for('static', filename='stylesheets/style.css') }}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+      #env-banner {
+        background-color: #ff9800;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
+    <!-- Ajout de la bannière -->
+    <div id="env-banner">
+      {{ env_banner }}
+    </div>
     <div id="content-container">
       <div id="content-container-center">
         <h3>{{option_a}} vs {{option_b}}!</h3>
