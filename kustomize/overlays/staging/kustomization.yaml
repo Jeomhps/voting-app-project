@@ -1,9 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-bases:
-  - ../../base
-patchesStrategicMerge:
-  - vote-deployment-patch.yaml
-  - vote-service-patch.yaml
-  - result-service-patch.yaml
 namespace: staging
+resources:
+- ../../base
+patches:
+- path: vote-deployment-patch.yaml
+- path: vote-service-patch.yaml
+- path: result-service-patch.yaml
